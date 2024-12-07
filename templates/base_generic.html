@@ -1,0 +1,46 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}YokoGem{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'users/css/style.css' %}">
+</head>
+<body>
+    <header class="header">
+        <div class="navigation">
+            <div class="container">
+<nav id="navbar">
+    <a class="logo" href="{% url 'about' %}">YokoGem</a>
+    <ul class="nav-links">
+        {% for m in menu %}
+        <li> <a href="{% url m.url_name %}">{{ m.title }}</a></li>
+        {% endfor %}
+    </ul>
+</div>
+</div>
+   
+</nav>
+</header>
+<main class="main">
+    <div class="container">
+        <div class="maincontent">
+            <div class="hamburger" onclick="toggleNav()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            {% block content %}
+
+            {% endblock %}
+        </div>
+    </div>
+</main>
+
+
+
+<script src="{% static 'users/js/script.js' %}"></script>
+</body>
+</html>

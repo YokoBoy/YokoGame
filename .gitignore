@@ -1,0 +1,27 @@
+# Ignore Python compiled files
+*.pyc
+*.pyo
+__pycache__/
+
+# Ignore virtual environment folders
+venv/
+env/
+Lib/
+Scripts/
+
+# Ignore Python dependencies
+*.dist-info/
+site-packages/
+
+# Ignore system files
+.DS_Store
+Thumbs.db
+
+# Ignore Django-specific files
+db.sqlite3
+*.log
+
+# Ignore IDE/editor config files
+.idea/
+.vscode/
+*.code-workspace

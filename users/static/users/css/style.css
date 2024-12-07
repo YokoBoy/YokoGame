@@ -1,0 +1,114 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.logo .nav-links {
+    display: inline-block; /* Чтобы элемент вел себя как блок */
+    padding: 10px 20px; /* Отступы внутри кнопки */
+    background-color: #007BFF; /* Цвет фона */
+    color: white; /* Цвет текста */
+    text-align: center; /* Центрирование текста */
+    text-decoration: none; /* Убираем подчеркивание */
+    border-radius: 5px; /* Закругленные углы */
+    border: none; /* Убираем границу */
+    transition: background-color 0.3s; /* Плавный переход цвета фона */
+}
+
+
+body {
+    max-width: 1920px;
+    width:100%;
+    margin: 0 auto;
+    font-family: Arial, sans-serif;
+    color: #333;
+}
+.container{
+    max-width: 1140px;
+    width: 100%;
+    padding: 0 auto;
+    margin: 0 auto;
+}
+/* Navbar */
+
+.header{
+display: flex;
+flex-direction: column;
+}
+.navigation{
+    display: flex;
+    position: fixed;
+    top: 0;
+}
+#navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #4CAF50;
+}
+
+#navbar .logo {
+    text-decoration: none;
+    font-size: 24px;
+    font-weight: bold;
+    color: #fff;
+}
+
+#navbar .logo a {
+    text-decoration: none;
+}
+
+#navbar .nav-links {
+    list-style: none;
+    display: flex;
+    color: #fff
+}
+
+#navbar .nav-links li {
+    margin: 0 15px;
+}
+
+#navbar .nav-links a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.logo a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background-color: #fff;
+    margin: 4px;
+}
+
+
+
+/* Mobile Navigation */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+}

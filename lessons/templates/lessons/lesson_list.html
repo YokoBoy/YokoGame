@@ -1,0 +1,203 @@
+{% extends "base_generic.html" %}
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Список уроков</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h1 {
+            margin-top: 20px;
+            font-size: 2.5em;
+            color: #4A90E2;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        p {
+            font-size: 1.2em;
+        }
+
+        a {
+            text-decoration: none;
+            color: #4A90E2;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        a:hover {
+            color: #d9534f;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            background-color: #fff;
+            margin: 10px 0;
+            padding: 15px;
+            width: 300px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, background-color 0.3s;
+        }
+
+        li:hover {
+            transform: translateY(-5px);
+            background-color: #f0f8ff;
+        }
+
+        .lesson-link {
+            display: block;
+            font-size: 1.5em;
+            color: #333;
+        }
+
+        .auth-section {
+            margin-bottom: 20px;
+            font-size: 1.1em;
+        }
+
+        .auth-section a {
+            margin: 0 10px;
+        }
+
+        .logout-button {
+            background-color: #d9534f;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .logout-button:hover {
+            background-color: #c9302c;
+        }
+    </style>
+</head>
+<body>
+{% block content%}
+
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h1 {
+            margin-top: 20px;
+            font-size: 2.5em;
+            color: #4A90E2;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        p {
+            font-size: 1.2em;
+        }
+
+        a {
+            text-decoration: none;
+            color: #4A90E2;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        a:hover {
+            color: #d9534f;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            background-color: #fff;
+            margin: 10px 0;
+            padding: 15px;
+            width: 300px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, background-color 0.3s;
+        }
+
+        li:hover {
+            transform: translateY(-5px);
+            background-color: #f0f8ff;
+        }
+
+        .lesson-link {
+            display: block;
+            font-size: 1.5em;
+            color: #333;
+        }
+
+        .auth-section {
+            margin-bottom: 20px;
+            font-size: 1.1em;
+        }
+
+        .auth-section a {
+            margin: 0 10px;
+        }
+
+        .logout-button {
+            background-color: #d9534f;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .logout-button:hover {
+            background-color: #c9302c;
+        }
+    </style>
+<h1>Список уроков</h1>
+
+<div class="auth-section">
+{% if user.is_authenticated %}
+    <p>Привет, {{ user.username }}!</p>
+    <button class="logout-button" onclick="window.location.href='{% url 'logout' %}'">Выйти</button>
+{% else %}
+    <a href="{% url 'login' %}">Войти</a> |
+    <a href="{% url 'register' %}">Зарегистрироваться</a>
+{% endif %}
+</div>
+
+<ul>
+    {% for lesson in lessons %}
+        <li>
+
+            <a class="lesson-link" href="{% url 'lesson_detail' lesson.id %}">{{ lesson.title }}</a>
+        </li>
+    {% endfor %}
+</ul>
+
+
+{% endblock %}
+</body>
+</html>

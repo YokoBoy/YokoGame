@@ -1,0 +1,121 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: Arial, sans-serif;
+        color: #333;
+    }
+
+    /* Banner */
+    .banner {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 300px;
+        background-color: #5a9;
+        color: white;
+        text-align: center;
+    }
+
+    .banner h1 {
+        font-size: 36px;
+    }
+
+    .banner p {
+        font-size: 18px;
+    }
+
+    /* Courses Section */
+
+    .course-list a {
+        text-decoration: none;
+        color: black;
+    }
+
+    .section {
+        padding: 40px 20px;
+        text-align: center;
+    }
+
+    .course-list {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+    }
+
+    .course-card {
+        width: 150px;
+        padding: 20px;
+        background-color: #eee;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Progress Section */
+    .progress-bar {
+        width: 80%;
+        max-width: 500px;
+        margin: 20px auto;
+        background-color: #ddd;
+        border-radius: 10px;
+        overflow: hidden;
+    }
+
+    .progress {
+        height: 20px;
+        background-color: #4CAF50;
+        color: #fff;
+        text-align: center;
+    }
+
+    /* Mobile Navigation */
+    @media (max-width: 768px) {
+        .nav-links {
+            display: none;
+            flex-direction: column;
+        }
+
+        .nav-links.active {
+            display: flex;
+        }
+
+        .hamburger {
+            display: flex;
+        }
+    }
+    
+</style>
+<!-- Main Content -->
+<section id="home" class="banner">
+    <h1>Welcome to YokoGem</h1>
+    <p>Your gateway to a brighter future!</p>
+</section>
+
+<section id="courses" class="section">
+    <h2>Our Courses</h2>
+    <div class="course-list">
+<!--        <a href="{% url 'lesson_detail' lesson.pk %}" class="course-card">Course 1</a>-->
+        <div class="course-card">Course 1</div>
+        <div class="course-card">Course 2</div>
+        <div class="course-card">Course 3</div>
+    </div>
+</section>
+
+<section id="progress" class="section">
+    <h2>Your Progress</h2>
+    <div class="progress-bar">
+        <div class="progress" style="width: 60%;">60%</div>
+    </div>
+</section>
+
+
+
+{% endblock %}

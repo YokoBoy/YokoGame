@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ lesson.title }}</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h1 {
+            margin-top: 20px;
+            font-size: 2.5em;
+            color: #4A90E2;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        p {
+            font-size: 1.2em;
+            padding: 10px 15px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+            text-align: justify;
+        }
+
+        h2 {
+            margin-top: 20px;
+            font-size: 2em;
+            color: #333;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            max-width: 800px;
+            width: 100%;
+        }
+
+        li {
+            background-color: #fff;
+            margin: 10px 0;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, background-color 0.3s;
+        }
+
+        li:hover {
+            transform: translateY(-5px);
+            background-color: #f0f8ff;
+        }
+
+    </style>
+</head>
+<body>
+
+    <h1>{{ lesson.title }}</h1>
+
+    <p> {{ lesson.description }}</p>
+
+    <h2>Вопросы:</h2>
+    <ul>
+        {% for question in lesson.questions.all %}
+            <li>{{ question.question_text }}</li>
+        {% endfor %}
+    </ul>
+
+</body>
+</html>
